@@ -1,28 +1,57 @@
 # overleaf-research-workspace
 
-## Welcome to the Overleaf Research Workspace
+| action | status | description |
+|--------|--------| ------------|
+| Last fetch of manuscript | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fmanuscript-fetch-status.json&query=lastBuild&style=flat-square&label=Last%20Fetch&labelColor=blue&color=black) | [overleaf-research-manuscript](https://github.com/dmackinnon1/overleaf-research-manuscript) is a submodule in this workspace repository| 
+| Latest PDF of manuscript | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fpdf-build-status.json&query=lastBuild&style=flat-square&label=Last%20PDF-Compile&labelColor=blue&color=black)| [Download the Latest PDF](main.pdf) |
+| PDF accessibility verification | ![Dynamic Regex Badge](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Frefs%2Fheads%2Fmain%2Fa11y-statement.txt&search=(.)*ua2&label=Accessibility%20Test)|[Download the full report](a11y-report.json)|
 
-This repository (overleaf-research-workspace) is your digital laboratory. It contains your data, analysis scripts (R/Python), and several GitHub Actions workflows.
+# What is a workspace repository?
 
-It contains a submodule named overleaf-research-manuscript. That submodule is the only thing linked to Overleaf.
+This repository (overleaf-research-workspace) is an example project that illustrates how to set up a "workspace" repository as a companion to an Overleaf-linked manuscript repository. This example workspace is associated with the example manusecript repo [overleaf-research-management](https://github.com/dmackinnon1/overleaf-research-manuscript). The manuscript repository is a submodule of the workspace repository.
 
-- Do you have Data/Scripts? Put them here in the Workspace.
+The workspace repository (overleaf-research-workspace) contains:
+- The latest version of the compiled PDF for sharing.
+- The results of running an accessibility test on the latest PDF
+- A report showing recent changes in the manuscript
+- Alternate formats of the manuscript (MS Word, HTML)
+- Raw data for the project
+- Scripts for generating artifacts used in the manuscript
+- The manuscript source, as a submodule
 
-- Do you have LaTeX text? Put it in the Manuscript submodule.
+The manuscript repository (overleaf-reseearch-manuscript) only contains the LaTeX source code required to build the manuscript. Organizing the research work in this way helps to keep the Overleaf-synched repository free from files that should not be included in the Overleaf project, helps to organize research artifacts and manage workflows. 
 
-- This repository will also contain the latest PDF of the manuscript, accessibility reports and changelogs
+# Research workflows using GitHub Actions
+Typical scientific workflows (data acquisition, data cleaning, analysis & generation, publishing/distributing) can be modeled using the software development and deployment approach known as CI/CD (Continuous Integration / Continuous Delivery). This approach makes the workflow reproducible and helps ensure the quality and consistency of its output, compared with add-hoc methods using local software.
 
-## Latest fetch and PDF compile of the manuscript
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fmanuscript-fetch-status.json&query=lastBuild&style=flat-square&label=Last%20Fetch&labelColor=blue&color=black)
+GitHub Actions provide a simple CI/CD framework. [Overleaf's GitHub synchronization feature](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization) provides an easy way to link Overleaf projects into a GitHub Action based workflow.
 
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fpdf-build-status.json&query=lastBuild&style=flat-square&label=Last%20PDF-Compile&labelColor=blue&color=black)
+## Compiling the PDF
 
-[Download the Latest PDF](main.pdf)
+The workflow **Compile Manuscript PDF** [compile-manuscript-pdf.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/compile-manuscript-pdf.yml) provides an example of how to install TeX Live and compile the main.tex file in the manuscript submodule.
 
-## PDF Accessibility check results
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fa11y-build-timestamp.json&query=lastBuild&style=flat-square&label=Last%20a11y%20check&labelColor=blue&color=black)
+There are several options when it comes to running LaTeX within GitHub Actions.
+
+| option | description | notes|
+|--------|-------------|------|
+| [TinyTeX](https://yihui.org/tinytex/) | `uses: r-lib/actions/setup-tinytex@v2` | A lightweight minimal install (not full TeX Live) |
+| [texlive container](https://hub.docker.com/r/texlive/texlive) | `container: texlive/texlive:latest` | A full TeX Live install using a docker container -- you can specify which release you need to use |
+| [xu-cheng's latex action](https://github.com/xu-cheng/latex-action) | `uses: xu-cheng/latex-action@v3` | A popular action that wraps a tex live docker image |
+| [xu-cheng's texlive container](https://github.com/xu-cheng/latex-docker) | `container: image: ghcr.io/xu-cheng/texlive-full:latest` | An alternate source for tex live |
+| [xu-cheng's texlive action](https://github.com/xu-cheng/texlive-action) | `uses: xu-cheng/texlive-action@v3` | an action to use the tex live container|
 
 
-![Dynamic Regex Badge](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Frefs%2Fheads%2Fmain%2Fa11y-statement.txt&search=(.)*ua2&label=Accessibility%20Test)
+## PDF accessibility testing
+The LaTeX source code for the manuscript makes use of the latest PDF tagging support available in Tex Live 2025. Please see the LaTeX team's [tagging instructions](https://latex3.github.io/tagging-project/documentation/usage-instructions) for more information.  
 
-[Download the full report](a11y-report.json)
+The workflow **Check PDF Accessibility (veraPDF)** [a11y-report.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/a11y-report.yml) provides an example of how to use the [veraPDF](https://github.com/veraPDF) docker container ([verapdf/cli](https://hub.docker.com/u/verapdf)) within an action to generate an accessibility report.
+
+## Showing changes since the previous version
+
+## Alternate formats
+
+## Running arXiv cleaning
+
+## Publishing HTML with latexml or bookml
+
+
