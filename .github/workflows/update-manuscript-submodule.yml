@@ -21,7 +21,7 @@ jobs:
           echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > manuscript-fetch-status.json
       - name: Commit and Push
         run: |
-          if ! git diff --quiet --exit-code -- overleafExample; then
+          if ! git diff --quiet --exit-code -- manuscript; then
             echo "Submodule has changes, committing..."
             git config --global user.name "GitHub Actions Bot"
             git config --global user.email "github-actions-bot@users.noreply.github.com"
