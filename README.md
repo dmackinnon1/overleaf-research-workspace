@@ -20,6 +20,9 @@ It contains a submodule named overleaf-research-manuscript. That submodule is th
 [Download the Latest PDF](main.pdf)
 
 ## PDF Accessibility check results
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fa11-build-timestamp.json&query=lastBuild&style=flat-square&label=Last%20a11y%20check&labelColor=blue&color=black)
+
+
 ![Dynamic Regex Badge](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Frefs%2Fheads%2Fmain%2Fa11y-statement.txt&search=(.)*ua2&label=Accessibility%20Test)
 
 [Download the full report](a11y-report.json)
