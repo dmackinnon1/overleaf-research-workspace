@@ -28,6 +28,12 @@ Typical scientific workflows (data acquisition, data cleaning, analysis & genera
 
 GitHub Actions provide a simple CI/CD framework. [Overleaf's GitHub synchronization feature](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization) provides an easy way to link Overleaf projects into a GitHub Action based workflow.
 
+At first glance, "software delivery," the arena in which CI/CD is used most extensively, may seem worlds away from "scientific research." But the high-level arguments for using CI/CD in research are powerful because they directly address the biggest challenges in modern science: reproducibility, validation, and transparency. The core idea is to treat your scientific paper as the "product" and your code, data, and manuscript as the "source." CI/CD provides a philosophical framework for ensuring this product is built in an automated, reliable, and transparent way.
+
+That being said, CI/CD in research workflows may look quite different than how it is used in software devivery. The CI/CD approach makes enormous sense in a software development setting because of how it helps teams coordinate their efforts. With CI/CD, QA tests can be run directly on checkin, and newly committed and tested code can be delivered right back to other developers, allowing for an incremental development process where code is always current and always tested. For the solo researcher or small team, the use and benefit of CI/CD is quite different, instead providing efficiency and reproducibility. 
+
+The CI/CD workflows in scientific research may have less orchestration and less regidity, for example. In particular, the different actions presented in this example repository all use the `workflow dispatch` trigger (they are manually triggered), rather than being automatically triggered by specific changes or events. More specific automated triggers can be added if a more rigorous and automatic workflow is desired.
+
 ## Compiling the PDF
 
 The workflow **Compile Manuscript PDF** [compile-manuscript-pdf.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/compile-manuscript-pdf.yml) provides an example of how to install TeX Live and compile the main.tex file in the manuscript submodule.
