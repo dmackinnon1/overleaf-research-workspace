@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: fix permissions
         run: "chown -R $(id -u):$(id -g) ."
       - name: set git variables
