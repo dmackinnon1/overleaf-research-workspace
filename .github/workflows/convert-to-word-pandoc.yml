@@ -1,0 +1,33 @@
+name: Convert to Word
+on:
+    workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Fix file permissions  
+        run: |
+          chown -R $(id -u):$(id -g) output.docx
+      - name: set git variables
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Convert with Pandoc Action
+        uses: docker://pandoc/core:3.5
+        with:
+          args: >-
+           --from=latex
+           --to=docx
+           --output=main.docx
+           ./manuscript/main.tex
+      - name: adding new word doc
+        run: |
+          git add main.docx
+          git commit -m 'adding new docx, github action'
+          git push
