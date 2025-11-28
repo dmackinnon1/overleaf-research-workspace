@@ -1,0 +1,30 @@
+name: Compile Manuscript PDF
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: fix permissions
+        run: "chown -R $(id -u):$(id -g) ."
+      - name: set git variables
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: Run latexmk
+        run: "latexmk --lualatex main.tex"
+      - name: Write Build Status
+        run: |
+          TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
+          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > pdf-build-status.json
+      - name: adding new pdfs
+        run: |
+          git add main.pdf
+          git add status.json
+          git commit -m 'adding new pdfs, github action'
+          git push
