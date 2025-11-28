@@ -15,6 +15,6 @@ It contains a submodule named overleaf-research-manuscript. That submodule is th
 ## Latest fetch and PDF compile of the manuscript
 ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fmanuscript-fetch-status.json&query=lastBuild&style=flat-square&label=Last%20Fetch&labelColor=blue&color=black)
 
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fpdf-build-status.json&query=lastBuild&style=flat-square&label=Last%20Built&labelColor=blue&color=black)
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fpdf-build-status.json&query=lastBuild&style=flat-square&label=Last%20PDF-Compile&labelColor=blue&color=black)
 
 [Download the Latest PDF](main.pdf)
