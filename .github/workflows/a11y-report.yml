@@ -23,6 +23,11 @@ jobs:
           --flavour ua2 \
           --format json \
           main.pdf > a11y-report.json || true
+
+           docker run --rm -v "${PWD}:/app" -w /app verapdf/cli:latest \
+          --flavour ua2 \
+          --format txt \
+          main.pdf > a11y-statement.txt || true
       - name: Commit and Push Report
         run: |
           git config --global user.name "github-actions[bot]"
@@ -30,6 +35,7 @@ jobs:
           
           # Add the report
           git add a11y-report.json
+          git add a11y-statement.txt
           
           # Commit only if the report changed (i.e., errors appeared or were fixed)
           if ! git diff --quiet --cached; then
