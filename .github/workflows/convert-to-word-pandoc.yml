@@ -1,4 +1,4 @@
-name: Convert to Word
+name: Convert to Word (pandoc)
 on:
     workflow_dispatch:
 permissions:
@@ -13,7 +13,7 @@ jobs:
           submodules: recursive
       - name: Fix file permissions  
         run: |
-          chown -R $(id -u):$(id -g) output.docx
+          chown -R $(id -u):$(id -g) main.docx
       - name: set git variables
         run: |
           git config --global user.name "github-actions[bot]"
