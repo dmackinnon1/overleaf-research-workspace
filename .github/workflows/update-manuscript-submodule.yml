@@ -25,7 +25,7 @@ jobs:
             echo "Submodule has changes, committing..."
             git config --global user.name "GitHub Actions Bot"
             git config --global user.email "github-actions-bot@users.noreply.github.com"
-            git add overleafExample
+            git add manuscript
             git add  manuscript-fetch-status.json
             git commit -m "updating submodule"
             git push
