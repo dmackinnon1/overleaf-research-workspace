@@ -60,7 +60,7 @@ The tool `latexdiff` can be used to show the differences between two different .
 
 The workflow **Generate Diff PDF (latexdiff)** [generate-diff-latexdiff.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/generate-diff-latexdiff.yml) shows a simple application of this, comparing the current version ion the repository to the previous commit.
 
-## Alternate formats
+## Generating alternate formats
 
 [Pandoc](https://pandoc.org/) is a popular document conversion tool, and can be used to convert LaTeX source to MS Word (sometimes required). When it comes to converting LaTeX source to MS Word, there are no guarantees -- results vary depending on the formatting that has been applied in the LaTeX document. 
 
