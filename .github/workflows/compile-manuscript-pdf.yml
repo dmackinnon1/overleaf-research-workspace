@@ -30,6 +30,6 @@ jobs:
       - name: adding new pdfs
         run: |
           git add main.pdf
-          git add status.json
+          git add pdf-build-status.json
           git commit -m 'adding new pdfs, github action'
           git push
