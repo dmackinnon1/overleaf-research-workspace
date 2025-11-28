@@ -1,4 +1,4 @@
-name: Update Submodule Action
+name: Get Latest Manuscript
 on:
   workflow_dispatch:  
 jobs:
