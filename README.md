@@ -1,6 +1,6 @@
 # overleaf-research-workspace
 
-## Welcome to the Overleaf Research Workspace.
+## Welcome to the Overleaf Research Workspace
 
 This repository (overleaf-research-workspace) is your digital laboratory. It contains your data, analysis scripts (R/Python), and several GitHub Actions workflows.
 
