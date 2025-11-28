@@ -6,6 +6,7 @@
 | Latest PDF of manuscript | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fpdf-build-status.json&query=lastBuild&style=flat-square&label=Last%20PDF-Compile&labelColor=blue&color=black)| [Download the latest PDF](main.pdf) |
 | PDF accessibility verification | ![Dynamic Regex Badge](https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Frefs%2Fheads%2Fmain%2Fa11y-statement.txt&search=(.)*ua2&label=Accessibility%20Test)|[Download the full report](a11y-report.json)|
 | PDF showing recent changes | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Flatexdiff-run-info.json&query=lastBuild&style=flat-square&label=Last%20latexdiff&labelColor=blue&color=black)|[Download the latest PDF with changes](diff.pdf)|
+| MS Word conversion |  ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fdmackinnon1%2Foverleaf-research-workspace%2Fmain%2Fpandoc-run-info.json&query=lastBuild&style=flat-square&label=Last%20pandoc%20run&labelColor=blue&color=black)|[Obtain the latest MS Word version](main.docx)|
 
 # What is a workspace repository?
 
