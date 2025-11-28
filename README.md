@@ -55,9 +55,3 @@ The tool `latexdiff` can be used to show the differences between two different .
 ## Alternate formats
 
 [Pandoc](https://pandoc.org/) is a popular document conversion tool, and can be used to convert LaTeX source to MS Word (sometimes required). When it comes to converting LaTeX source to MS Word, there are no guarantees -- results vary depending on the formatting that has been applied in the LaTeX document. The workflow **Convert to Word (pandoc)** [convert-to-word-pandoc.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/convert-to-word-pandoc.yml) shows how to invoke pandoc using the [pandoc action](https://github.com/pandoc/pandoc-action-example)  
-
-## Running arXiv cleaning
-
-## Publishing HTML with latexml or bookml
-
-
