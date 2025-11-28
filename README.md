@@ -50,8 +50,12 @@ The workflow **Check PDF Accessibility (veraPDF)** [a11y-report.yml](https://raw
 
 ## Showing changes since the previous version
 
-The tool `latexdiff` can be used to show the differences between two different .tex files. A particularly useful wrapper on `latexdiff` is [git-latexdiff](https://gitlab.com/git-latexdiff/git-latexdiff), which allows you to compare versions of a latex source file based on their commits within a repository. The workflow **Generate Diff PDF (latexdiff)** [generate-diff-latexdiff.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/generate-diff-latexdiff.yml) shows a simple application of this, comparing the current version ion the repository to the previous commit.
+The tool `latexdiff` can be used to show the differences between two different .tex files. A particularly useful wrapper on `latexdiff` is [git-latexdiff](https://gitlab.com/git-latexdiff/git-latexdiff), which allows you to compare versions of a latex source file based on their commits within a repository. 
+
+The workflow **Generate Diff PDF (latexdiff)** [generate-diff-latexdiff.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/generate-diff-latexdiff.yml) shows a simple application of this, comparing the current version ion the repository to the previous commit.
 
 ## Alternate formats
 
-[Pandoc](https://pandoc.org/) is a popular document conversion tool, and can be used to convert LaTeX source to MS Word (sometimes required). When it comes to converting LaTeX source to MS Word, there are no guarantees -- results vary depending on the formatting that has been applied in the LaTeX document. The workflow **Convert to Word (pandoc)** [convert-to-word-pandoc.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/convert-to-word-pandoc.yml) shows how to invoke pandoc using the [pandoc action](https://github.com/pandoc/pandoc-action-example)  
+[Pandoc](https://pandoc.org/) is a popular document conversion tool, and can be used to convert LaTeX source to MS Word (sometimes required). When it comes to converting LaTeX source to MS Word, there are no guarantees -- results vary depending on the formatting that has been applied in the LaTeX document. 
+
+The workflow **Convert to Word (pandoc)** [convert-to-word-pandoc.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/convert-to-word-pandoc.yml) shows how to invoke pandoc using the [pandoc action](https://github.com/pandoc/pandoc-action-example)  
