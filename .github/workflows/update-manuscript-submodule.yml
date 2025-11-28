@@ -15,7 +15,10 @@ jobs:
       - name: Update submodules to latest remote commits
         run: |
           git submodule update --remote --recursive
-      
+      - name: Write Build Status
+        run: |
+          TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
+          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > manuscript-fetch-status.json
       - name: Commit and Push
         run: |
           if ! git diff --quiet --exit-code -- overleafExample; then
@@ -23,6 +26,7 @@ jobs:
             git config --global user.name "GitHub Actions Bot"
             git config --global user.email "github-actions-bot@users.noreply.github.com"
             git add overleafExample
+            git add  manuscript-fetch-status.json
             git commit -m "updating submodule"
             git push
           else
