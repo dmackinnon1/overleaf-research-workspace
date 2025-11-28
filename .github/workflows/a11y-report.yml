@@ -26,7 +26,7 @@ jobs:
 
            docker run --rm -v "${PWD}:/app" -w /app verapdf/cli:latest \
           --flavour ua2 \
-          --format txt \
+          --format text \
           main.pdf > a11y-statement.txt || true
       - name: Commit and Push Report
         run: |
