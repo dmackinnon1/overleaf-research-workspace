@@ -1,4 +1,4 @@
-name: Compile Manuscript PDF (latexmk,lualatex)
+name: Compile PDF (latexmk,lualatex)
 on:
   workflow_dispatch:
 permissions:
