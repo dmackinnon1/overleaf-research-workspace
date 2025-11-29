@@ -12,7 +12,7 @@
   "buildDate" : 1752598740000
 }]},"jobs":[{"itemDetails":{
   "name" : "/app/main.pdf",
-  "size" : 186683
+  "size" : 186681
 },"validationResult":[ {
   "details" : {
     "passedRules" : 1723,
@@ -26,16 +26,16 @@
   "statement" : "PDF file is compliant with Validation Profile requirements.",
   "compliant" : true
 } ],"processingTime":{
-  "start" : 1764294750720,
-  "finish" : 1764294751742,
-  "duration" : "00:00:01.022",
-  "difference" : 1022
+  "start" : 1764431288611,
+  "finish" : 1764431289616,
+  "duration" : "00:00:01.005",
+  "difference" : 1005
 }}],"batchSummary":{
   "duration" : {
-    "start" : 1764294750623,
-    "finish" : 1764294751768,
-    "duration" : "00:00:01.145",
-    "difference" : 1145
+    "start" : 1764431288526,
+    "finish" : 1764431289643,
+    "duration" : "00:00:01.117",
+    "difference" : 1117
   },
   "totalJobs" : 1,
   "outOfMemory" : 0,
@@ -54,9 +54,9 @@
   "failedEncryptedJobs" : 0,
   "failedParsingJobs" : 0,
   "validationSummary" : {
-    "compliantPdfaCount" : 1,
     "failedJobCount" : 0,
     "totalJobCount" : 1,
+    "compliantPdfaCount" : 1,
     "nonCompliantPdfaCount" : 0,
     "successfulJobCount" : 1
   }
