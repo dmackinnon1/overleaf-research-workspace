@@ -38,7 +38,7 @@ MontyHall$outcome[MontyHall$winner] <- "won"
 MontyHall$outcome[!MontyHall$winner] <- "lost"
 
 write.table(MontyHall, 
-            file = "output_data.txt", 
+            file = "./monty-hall/output_data.txt", 
             sep = "\t", 
             row.names = FALSE, 
             quote = FALSE) 
