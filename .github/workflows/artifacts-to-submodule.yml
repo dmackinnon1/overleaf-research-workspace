@@ -15,13 +15,14 @@ jobs:
           git submodule update --remote --recursive
       - name: Copy artifacts from workspace to manuscript
         run: |
-          cp -r ./monty-hall/* ./manuscript/monty-hall 
+          cp -r ./monty-hall/*.png ./manuscript/monty-hall 
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions-bot@users.noreply.github.com"
           cd ./manuscript
-          git commit --all -m "latest update from workspace"
+          git add .
+          git commit -m "latest update from workspace"
           cd ..
           git add manuscript
           git commit -m "updating submodule"
