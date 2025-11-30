@@ -31,7 +31,7 @@ jobs:
       - name: Write Build Status
         run: |
           TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
-          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > a11y-build-timestamp.json
+          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > a11y-build-info.json
       - name: Commit and Push Report
         run: |
           git config --global user.name "github-actions[bot]"
@@ -39,6 +39,6 @@ jobs:
           # Add the report
           git add a11y-report.json
           git add a11y-statement.txt
-          git add a11y-build-timestamp.json
+          git add a11y-build-info.json
           git commit -m "Chore: Update PDF accessibility report"
           git push
