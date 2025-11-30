@@ -1,4 +1,4 @@
-name: Get Latest Manuscript
+name: Workspace to Manuscript
 on:
   workflow_dispatch:  
 jobs:
