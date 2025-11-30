@@ -26,10 +26,10 @@ jobs:
       - name: Write Build Status
         run: |
           TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
-          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > pdf-build-status.json
+          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > pdf-build-info.json
       - name: adding new pdfs
         run: |
           git add main.pdf
-          git add pdf-build-status.json
+          git add pdf-build-info.json
           git commit -m 'adding new pdfs, github action'
           git push
