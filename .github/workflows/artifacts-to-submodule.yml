@@ -15,7 +15,7 @@ jobs:
           git submodule update --remote --recursive
       - name: Copy artifacts from workspace to manuscript
         run: |
-          cp -r ./mandelbrot/* ./manuscript/mandelbrot 
+          cp -r ./monty-hall/* ./manuscript/monty-hall 
       - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions Bot"
