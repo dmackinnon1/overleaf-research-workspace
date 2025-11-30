@@ -39,14 +39,14 @@ jobs:
       - name: Write Build Status
         run: |
           TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
-          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > latexdiff-build-info.json
+          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > ./build-info/latexdiff-build-info.json
       - name: Commit and Push Diff
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add diff.pdf
-          git add latexdiff-build-info.json
+          git add ./build-info/latexdiff-build-info.json
 
           git commit -m "Update diff.pdf showing recent changes"
           git push
