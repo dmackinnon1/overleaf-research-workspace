@@ -24,7 +24,7 @@ The workspace repository (overleaf-research-workspace) contains:
 The manuscript repository (overleaf-reseearch-manuscript) only contains the LaTeX source code required to build the manuscript. Organizing the research work in this way helps to keep the Overleaf-synched repository free from files that should not be included in the Overleaf project, helps to organize research artifacts and manage workflows. 
 
 # Research workflows using GitHub Actions
-Typical scientific workflows (data acquisition, data cleaning, analysis & generation, publishing/distributing) can be modeled using the software development and deployment approach known as CI/CD (Continuous Integration / Continuous Delivery). This approach makes the workflow reproducible and helps ensure the quality and consistency of its output, compared with add-hoc methods using local software.
+Typical scientific research workflows (data acquisition, data cleaning, analysis & generation, publishing/distributing) can be modeled using the software development and deployment approach known as CI/CD (Continuous Integration / Continuous Delivery). This approach makes the workflow reproducible and helps ensure the quality and consistency of its output, compared with add-hoc methods using local software.
 
 GitHub Actions provide a simple CI/CD framework. [Overleaf's GitHub synchronization feature](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github-synchronization) provides an easy way to link Overleaf projects into a GitHub Action based workflow.
 
