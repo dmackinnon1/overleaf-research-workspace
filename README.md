@@ -20,8 +20,16 @@ The workspace repository (overleaf-research-workspace) contains:
 - Raw data for the project
 - Scripts for generating artifacts used in the manuscript
 - The manuscript source, as a submodule
+- Github Action definitions for most workflow tasks
 
-The manuscript repository (overleaf-reseearch-manuscript) only contains the LaTeX source code required to build the manuscript. Organizing the research work in this way helps to keep the Overleaf-synched repository free from files that should not be included in the Overleaf project, helps to organize research artifacts and manage workflows. 
+The manuscript repository ([overleaf-research-manuscript]()) contains:
+- Source files required to produce the manuscript
+- Github Action definitions for workflows that are related directly to writing tasks
+
+Users of Overleaf's Github sync feature frequently encounter an "Overleaf project vs. GitHub repository mismatch." While Overleaf projects and GitHub repositories both contain source files, and can be synchronized so that they contain the same files, Overleaf projects have more restrictions on the type and number of files they can contain. Best practice suggests that an Overleaf project should only contain the source files required to compile a specific document. A GitHub repository for a particular research project may contain many other artifacts beyond what an Overleaf project should contain. Having a monolythic research repository synchronized with an Overleaf project can lead to a number of problems, and even cause the synchronization to fail.
+
+A "workspace-manuscript" implementation pattern avoids the problems that can arise when associating an Overleaf project with a research "monorepo." Organizing the research work in this way helps to keep the Overleaf-synched repository free from files that should not be included in the Overleaf project, helps to organize research artifacts and manage workflows. 
+
 
 # Research workflows using GitHub Actions
 Typical scientific research workflows (data acquisition, data cleaning, analysis & generation, publishing/distributing) can be modeled using the software development and deployment approach known as CI/CD (Continuous Integration / Continuous Delivery). This approach makes the workflow reproducible and helps ensure the quality and consistency of its output, compared with add-hoc methods using local software.
@@ -64,4 +72,7 @@ The workflow **Generate Diff PDF (latexdiff)** [generate-diff-latexdiff.yml](htt
 
 [Pandoc](https://pandoc.org/) is a popular document conversion tool, and can be used to convert LaTeX source to MS Word (sometimes required). When it comes to converting LaTeX source to MS Word, there are no guarantees -- results vary depending on the formatting that has been applied in the LaTeX document. 
 
-The workflow **Convert to Word (pandoc)** [convert-to-word-pandoc.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/convert-to-word-pandoc.yml) shows how to invoke pandoc using the [pandoc action](https://github.com/pandoc/pandoc-action-example)  
+The workflow **Convert to Word (pandoc)** [convert-to-word-pandoc.yml](https://raw.githubusercontent.com/dmackinnon1/overleaf-research-workspace/refs/heads/main/.github/workflows/convert-to-word-pandoc.yml) shows how to invoke pandoc using the [pandoc action](https://github.com/pandoc/pandoc-action-example).
+
+## Processing data, generating graphs and tables
+
