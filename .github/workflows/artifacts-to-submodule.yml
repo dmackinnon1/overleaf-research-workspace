@@ -1,0 +1,28 @@
+name: Get Latest Manuscript
+on:
+  workflow_dispatch:  
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          submodules: 'recursive'
+      - name: Update submodules to latest remote commits
+        run: |
+          git submodule update --remote --recursive
+      - name: Copy artifacts from workspace to manuscript
+        run: |
+          cp -r ./mandelbrot/* ./manuscript/mandelbrot 
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions-bot@users.noreply.github.com"
+          cd ./manuscript
+          git commit --all -m "latest update from workspace"
+          cd ..
+          git add manuscript
+          git commit -m "updating submodule"
+          git push
