@@ -1,0 +1,20 @@
+name: Reset Manuscript
+on:
+  workflow_dispatch:  
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}       
+      - name: Update submodules to latest remote commits
+        run: |
+          git submodule deinit -f manuscript
+          rm -rf .git/modules/manuscript
+          git rm -f manuscript
+          git submodule add https://github.com/dmackinnon1/overleaf-research-manuscript manuscript
+          git submodule update --init --recursive
+          git commit -m "Reset and re-initialize submodule manuscript"
+          git push
