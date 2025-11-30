@@ -12,7 +12,7 @@
   "buildDate" : 1752598740000
 }]},"jobs":[{"itemDetails":{
   "name" : "/app/main.pdf",
-  "size" : 186681
+  "size" : 186708
 },"validationResult":[ {
   "details" : {
     "passedRules" : 1723,
@@ -26,16 +26,16 @@
   "statement" : "PDF file is compliant with Validation Profile requirements.",
   "compliant" : true
 } ],"processingTime":{
-  "start" : 1764431288611,
-  "finish" : 1764431289616,
-  "duration" : "00:00:01.005",
-  "difference" : 1005
+  "start" : 1764470108784,
+  "finish" : 1764470109689,
+  "duration" : "00:00:00.905",
+  "difference" : 905
 }}],"batchSummary":{
   "duration" : {
-    "start" : 1764431288526,
-    "finish" : 1764431289643,
-    "duration" : "00:00:01.117",
-    "difference" : 1117
+    "start" : 1764470108703,
+    "finish" : 1764470109713,
+    "duration" : "00:00:01.010",
+    "difference" : 1010
   },
   "totalJobs" : 1,
   "outOfMemory" : 0,
