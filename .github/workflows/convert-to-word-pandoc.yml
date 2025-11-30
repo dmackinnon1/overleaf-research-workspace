@@ -28,10 +28,10 @@ jobs:
       - name: Write Build Status
         run: |
           TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
-          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > pandoc-run-info.json
+          echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > pandoc-build-info.json
       - name: adding new word doc
         run: |
           git add main.docx
-          git add pandoc-run-info.json
+          git add pandoc-build-info.json
           git commit -m 'adding new docx, github action'
           git push
