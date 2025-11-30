@@ -2,7 +2,7 @@ name: Reset Manuscript
 on:
   workflow_dispatch:  
 jobs:
-  update-submodule:
+  reset-submodule:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -11,6 +11,8 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}       
       - name: Update submodules to latest remote commits
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com" 
           git submodule deinit -f manuscript
           rm -rf .git/modules/manuscript
           git rm -f manuscript
