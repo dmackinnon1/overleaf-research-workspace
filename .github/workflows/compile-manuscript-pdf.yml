@@ -22,14 +22,14 @@ jobs:
         run: |
          cd ./manuscript
          latexmk --lualatex main.tex
-         cp main.pdf ../main.pdf
+         cp main.pdf ../output/main.pdf
       - name: Write Build Status
         run: |
           TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
           echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > ./build-info/pdf-build-info.json
       - name: adding new pdfs
         run: |
-          git add main.pdf
+          git add ./output/main.pdf
           git add ./build-info/pdf-build-info.json
           git commit -m 'adding new pdfs, github action'
           git push
