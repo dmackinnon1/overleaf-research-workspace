@@ -22,12 +22,12 @@ jobs:
           docker run --rm -v "${PWD}:/app" -w /app verapdf/cli:latest \
           --flavour ua2 \
           --format json \
-          main.pdf > a11y-report.json || true
+          ./output/main.pdf > a11y-report.json || true
 
            docker run --rm -v "${PWD}:/app" -w /app verapdf/cli:latest \
           --flavour ua2 \
           --format text \
-          main.pdf > a11y-statement.txt || true
+          ./output/main.pdf > a11y-statement.txt || true
       - name: Write Build Status
         run: |
           TIMESTAMP=$(date --utc +'%Y-%m-%dT%H:%M:%SZ')
