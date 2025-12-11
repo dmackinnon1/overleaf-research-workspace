@@ -23,7 +23,7 @@ jobs:
           args: >-
            --from=latex
            --to=docx
-           --output=main.docx
+           --output=./output/main.docx
            ./manuscript/main.tex
       - name: Write Build Status
         run: |
@@ -31,7 +31,7 @@ jobs:
           echo "{\"lastBuild\": \"${TIMESTAMP}\"}" > ./build-info/pandoc-build-info.json
       - name: adding new word doc
         run: |
-          git add main.docx
+          git add ./output/main.docx
           git add ./build-info/pandoc-build-info.json
           git commit -m 'adding new docx, github action'
           git push
